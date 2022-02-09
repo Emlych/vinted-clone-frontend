@@ -1,6 +1,10 @@
 /* General */
 :root {
   --secondaryFontColor: #999;
+  --primaryFontColor: #666;
+  --primaryBackgroundColor: #ebedee;
+  --primaryColor: #09b1ba;
+  --primaryHoverColor: #09adb6;
 }
 * {
   text-decoration: none;
@@ -9,6 +13,12 @@
   max-width: 100%;
   height: auto;
   object-fit: cover;
+}
+.grey {
+  color: var(--secondaryFontColor);
+}
+.darkgrey {
+  color: var(--primaryFontColor);
 }
 
 /* -------------- */
@@ -29,11 +39,14 @@
 }
 
 /* PRODUCTS */
-.products {
+.offers {
   display: flex;
 }
 
 /* PRODUCT CARD */
+.card {
+  padding: 5px;
+}
 .card__user {
   display: flex;
   align-items: center;
@@ -44,8 +57,84 @@
   width: 25px;
   object-fit: cover;
   border-radius: 50%;
+  margin-right: 8px;
 }
 .card__user--name {
   color: var(--secondaryFontColor);
   font-size: 12px;
+}
+.card__img img {
+  height: 360px;
+  width: 235px;
+}
+.card__details {
+  padding: 8px;
+}
+
+/* OFFER PAGE */
+.offer {
+  background-color: var(--primaryBackgroundColor);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 30px;
+}
+.offer__img img {
+  height: 600px;
+  object-fit: cover;
+}
+.offer__infos {
+  padding: 40px;
+}
+.infos--price {
+  font-size: 24px;
+  line-height: 32px;
+  color: #111;
+}
+.infos--details {
+  margin: 5px 0;
+  padding-bottom: 30px;
+  border-bottom: 1px solid var(--secondaryFontColor);
+}
+.infos--details--line {
+  display: flex;
+}
+.infos--details--line span {
+  flex: 1 1;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+.offer__block {
+  padding-top: 40px;
+}
+.block--name {
+  font-weight: 700;
+  padding-bottom: 20px;
+}
+.block--description {
+  color: var(--secondaryFontColor);
+}
+.block--user {
+  display: flex;
+  padding: 25px 0;
+}
+.block--user img {
+  height: 25px;
+  width: 25px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 8px;
+  background-color: black;
+}
+.offer button {
+  width: 100%;
+  background-color: var(--primaryColor);
+  color: white;
+  border: 1px solid var(--primaryColor);
+  border-radius: 4px;
+  font-size: 16px;
+  height: 36px;
+  padding: 0 16px;
+  line-height: 36px;
+  margin-top: 32px;
 }

@@ -2,7 +2,9 @@ import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Header from "../components/Header";
+import Hero from "../components/Hero";
 import CardProduct from "../components/CardProduct";
+
 import { Link } from "react-router-dom";
 
 const Home = () => {
@@ -18,7 +20,6 @@ const Home = () => {
         );
         setData(response.data);
         setIsLoading(false);
-        console.log(data.offers);
       } catch (error) {
         console.log(error.response);
       }
@@ -28,15 +29,19 @@ const Home = () => {
   return (
     <div>
       <Header />
+      <Hero />
       {isLoading ? (
         <span>En cours de chargement...</span>
       ) : (
-        <div className="products">
-          {data.offers.map((item, index) => {
+        <div className="offers">
+          {data.offers.map((item) => {
             return (
-              <Link to={`/product/${item._id}`}>
-                <CardProduct item={item} />
-              </Link>
+              <div>
+                {/* Opens Offer on click */}
+                <Link to={`/offer/${item._id}`} key={item._id}>
+                  <CardProduct item={item} />
+                </Link>
+              </div>
             );
           })}
         </div>
