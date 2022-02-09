@@ -18,7 +18,7 @@ const Home = () => {
         );
         setData(response.data);
         setIsLoading(false);
-        console.log(data);
+        console.log(data.offers);
       } catch (error) {
         console.log(error.response);
       }
@@ -32,15 +32,13 @@ const Home = () => {
         <span>En cours de chargement...</span>
       ) : (
         <div className="products">
-          <Link to="/product">
-            <CardProduct />
-          </Link>
-          <Link to="/product">
-            <CardProduct />
-          </Link>
-          <Link to="/product">
-            <CardProduct />
-          </Link>
+          {data.offers.map((item, index) => {
+            return (
+              <Link to={`/product/${item._id}`}>
+                <CardProduct item={item} />
+              </Link>
+            );
+          })}
         </div>
       )}
     </div>
