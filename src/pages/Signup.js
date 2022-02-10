@@ -4,16 +4,17 @@ import axios from "axios";
 const Signup = () => {
   //Send data to Vinted API
   const [data, setData] = useState({ username: "", email: "", password: "" });
-
+  const [token, setToken] = useState("");
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.post(
-          "https://vinted-clone-eld.herokuapp.com/user/signup",
-          //   "https://lereacteur-vinted-api.herokuapp.com/user/signup",
+          //   "https://vinted-clone-eld.herokuapp.com/user/signup",
+          "https://lereacteur-vinted-api.herokuapp.com/user/signup",
           data
         );
         console.log("response ==>", response);
+        setToken(response.data.token);
       } catch (error) {
         console.log("error ==>", error.response);
       }
