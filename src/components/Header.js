@@ -14,7 +14,9 @@ const Header = () => {
           <Link to={`/signup`}>
             <button className="btn white">S'inscrire</button>
           </Link>
-          <button className="btn white">Se connecter</button>
+          <Link to={`/login`}>
+            <button className="btn white">Se connecter</button>
+          </Link>
           <button className="btn primary">Vends tes articles</button>
         </div>
       </div>
