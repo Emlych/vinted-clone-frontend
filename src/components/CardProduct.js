@@ -6,7 +6,7 @@ const CardProduct = ({ item }) => {
       {console.log("item ===>", item)}
       <div className="card__user">
         <div className="card__user--img">
-          <img src={item.user.account.avatar.url} alt="profile avatar" />
+          <img src={item.owner.account.avatar.url} alt="profile avatar" />
         </div>
         <div className="card__user--name">{item.owner.account.username}</div>
       </div>
@@ -18,8 +18,7 @@ const CardProduct = ({ item }) => {
         {item.product_details.map((item, index) => {
           return (
             <div className="infos--details--line">
-              <span className="grey">{Object.keys(item)}</span>
-              <span className="darkgrey">{Object.values(item)}</span>
+              <span className="grey">{Object.values(item)}</span>
             </div>
           );
         })}

@@ -16,10 +16,11 @@ const Offer = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          `https://vinted-clone-eld.herokuapp.com/offer/${id}`
+          // `https://vinted-clone-eld.herokuapp.com/offer/${id}`
+          `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
         );
         // const offer = response.data.offers.find((elem) => elem._id === id);
-        setData(response.data.offers);
+        setData(response.data);
         setIsLoading(false);
       } catch (error) {
         console.log("error of ===>", error.response);

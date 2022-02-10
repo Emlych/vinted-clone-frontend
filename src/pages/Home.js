@@ -16,12 +16,13 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://vinted-clone-eld.herokuapp.com/offers"
+          // "https://vinted-clone-eld.herokuapp.com/offers"
+          "https://lereacteur-vinted-api.herokuapp.com/offers"
         );
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
-        console.log(error.response);
+        console.log("error ===>", error.response);
       }
     };
     fetchData();
