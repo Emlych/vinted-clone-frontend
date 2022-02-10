@@ -10,7 +10,11 @@ const Header = () => {
           <img src={logo} alt="" />
         </Link>
 
-        <div>Some other text</div>
+        <div className="header__interaction">
+          <button className="btn white">S'inscrire</button>
+          <button className="btn white">Se connecter</button>
+          <button className="btn primary">Vends tes articles</button>
+        </div>
       </div>
     </div>
   );

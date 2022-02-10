@@ -3,7 +3,7 @@
   --secondaryFontColor: #999;
   --primaryFontColor: #666;
   --primaryBackgroundColor: #ebedee;
-  --primaryColor: #09b1ba;
+  --primaryColor: #2cb1ba;
   --primaryHoverColor: #09adb6;
 }
 * {
@@ -19,6 +19,14 @@
 }
 .darkgrey {
   color: var(--primaryFontColor);
+}
+.white {
+  background-color: #fff;
+  color: var(--primaryColor);
+}
+.primary {
+  background-color: var(--primaryColor);
+  color: #fff;
 }
 
 /* -------------- */
@@ -36,6 +44,18 @@
   height: 455px;
   width: 100%;
   object-fit: cover;
+}
+.header__interaction {
+  display: flex;
+  align-items: center;
+}
+.btn {
+  height: 30px;
+  width: 115px;
+  font-size: 12px;
+  border-radius: 5px;
+  border: 1px solid var(--primaryColor);
+  margin-right: 15px;
 }
 
 /* PRODUCTS */
