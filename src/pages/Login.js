@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import Cookies from "js-cookie";
 
 const Login = () => {
@@ -73,7 +73,7 @@ const Login = () => {
         />
         <input type="submit" value="S'inscrire" />
       </form>
-      <div>Pas encore de compte? Inscris-toi ! </div>
+      <Link to="/signup">Pas encore de compte? Inscris-toi ! </Link>
     </div>
   );
 };
