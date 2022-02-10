@@ -11,14 +11,19 @@ const CardProduct = ({ item }) => {
         <div className="card__user--name">{item.owner.account.username}</div>
       </div>
       <div className="card__img">
-        <img src={item.product_image.url} alt={item.product_description} />
+        <img
+          src={item.product_image.secure_url}
+          alt={item.product_description}
+        />
       </div>
       <div className="card__details">
         <div className="card__price">{item.product_price} €</div>
         {item.product_details.map((item, index) => {
+          // const keys = Object.keys(item);
           return (
             <div className="infos--details--line">
-              <span className="grey">{Object.values(item)}</span>
+              {/* <span className="grey">{item[keys[0]]}</span> */}
+              <span className="grey">{Object.values(item)[1]}</span>
             </div>
           );
         })}

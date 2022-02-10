@@ -1,13 +1,14 @@
+// Home page
+
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
-import Header from "../components/Header";
+import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
 import CardProduct from "../components/CardProduct";
 
-import { Link } from "react-router-dom";
-
 const Home = () => {
+  // States
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -29,16 +30,18 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
       <Hero />
       {isLoading ? (
         <span>En cours de chargement...</span>
       ) : (
         <div className="offers">
+          {/* display a limited number of items with query.limit */}
+          Display limited number of items
           {data.offers.map((item) => {
             return (
               <div>
-                {/* Opens Offer on click */}
+                {/* Opens Offer when click on CardProduct item */}
                 <Link to={`/offer/${item._id}`} key={item._id}>
                   <CardProduct item={item} />
                 </Link>

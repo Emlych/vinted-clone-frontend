@@ -158,3 +158,36 @@
   line-height: 36px;
   margin-top: 32px;
 }
+
+/* Signup page */
+h2 {
+  font-size: 24px;
+  font-weight: 400;
+}
+.signup {
+  padding: 30px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.signup form {
+  margin: 20px 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+
+  width: 275px;
+}
+.signup input {
+  height: 35px;
+  margin-bottom: 20px;
+  border: none;
+  border-bottom: 1px solid var(--primaryBackgroundColor);
+}
+.input-checkbox {
+  display: flex;
+  align-items: center;
+}

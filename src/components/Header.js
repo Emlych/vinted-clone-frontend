@@ -11,7 +11,9 @@ const Header = () => {
         </Link>
 
         <div className="header__interaction">
-          <button className="btn white">S'inscrire</button>
+          <Link to={`/signup`}>
+            <button className="btn white">S'inscrire</button>
+          </Link>
           <button className="btn white">Se connecter</button>
           <button className="btn primary">Vends tes articles</button>
         </div>

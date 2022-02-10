@@ -1,5 +1,6 @@
+//Offer page
+
 import React from "react";
-import Header from "../components/Header";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -31,7 +32,6 @@ const Offer = () => {
 
   return (
     <div>
-      <Header />
       {isLoading ? (
         <span>En cours de chargement...</span>
       ) : (
@@ -43,8 +43,10 @@ const Offer = () => {
             <div className="infos--price">{data.product_price} €</div>
             <div className="infos--details">
               {data.product_details.map((item, index) => {
+                // const keys = Object.keys(item);
                 return (
                   <div className="infos--details--line">
+                    {/* {keys[0]} : {item[keys(0)]} */}
                     <span className="grey">{Object.keys(item)}</span>
                     <span className="darkgrey">{Object.values(item)}</span>
                   </div>
