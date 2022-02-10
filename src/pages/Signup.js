@@ -2,21 +2,24 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Signup = () => {
-  const [data, setData] = useState({ username: "", email: "", password: "" });
   //Send data to Vinted API
+  const [data, setData] = useState({ username: "", email: "", password: "" });
+
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await axios.post(
           "https://vinted-clone-eld.herokuapp.com/user/signup",
+          //   "https://lereacteur-vinted-api.herokuapp.com/user/signup",
           data
         );
+        console.log("response ==>", response);
       } catch (error) {
         console.log("error ==>", error.response);
       }
     };
     fetchData();
-  }, []);
+  }, [data]);
 
   // Data to post
   const [username, setUsername] = useState("");
@@ -34,7 +37,7 @@ const Signup = () => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(username, email, password);
+    console.log("data to store ==>", username, email, password);
     //Stocker les valeurs dans le data à envoyer
     setData({ username: username, email: email, password: password });
   };
