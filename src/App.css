@@ -6,6 +6,7 @@
   --primaryColor: #2cb1ba;
   --primaryHoverColor: #09adb6;
   --pinkColor: #c2175b;
+  --headerHeight: 80px;
 }
 * {
   text-decoration: none;
@@ -46,7 +47,7 @@
   width: 100vw;
 }
 .header__top {
-  padding: 20px;
+  padding: calc((var(--headerHeight) - 40px) / 2);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -139,11 +140,12 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 30px;
+  padding: calc(var(--headerHeight) + 30px) 30px 0;
+  height: 90vh;
 }
 .offer__img img {
-  height: 600px;
-  object-fit: cover;
+  min-height: 600px;
+  object-fit: fill;
 }
 .offer__infos {
   padding: 40px;

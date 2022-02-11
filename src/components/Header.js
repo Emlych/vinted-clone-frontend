@@ -1,20 +1,20 @@
 import React, { useState, useEffect } from "react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 
-const Header = ({ openSignupModal, openLoginModal }) => {
+const Header = ({ token, setUser, openSignupModal, openLoginModal }) => {
   //Connected status
-  const [isConnected, setIsConnected] = useState(false);
-  const disconnect = () => {
-    Cookies.remove("token");
-    setIsConnected(false);
-  };
-  useEffect(() => {
-    if (Cookies.get("token")) {
-      setIsConnected(true);
-    }
-  }, []);
+  // const [isConnected, setIsConnected] = useState(false);
+  // const disconnect = () => {
+  //   Cookies.remove("token");
+  //   setIsConnected(false);
+  // };
+  // useEffect(() => {
+  //   if (Cookies.get("token")) {
+  //     setIsConnected(true);
+  //   }
+  // }, []);
 
   return (
     <div className="header">
@@ -25,8 +25,9 @@ const Header = ({ openSignupModal, openLoginModal }) => {
 
         <div className="header__interaction">
           <div className="interaction--left">
-            {isConnected ? (
-              <button className="btn pink" onClick={disconnect}>
+            {/* {isConnected ? ( */}
+            {token ? (
+              <button className="btn pink" onClick={() => setUser(null)}>
                 Se déconnecter
               </button>
             ) : (

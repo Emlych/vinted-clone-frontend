@@ -3,7 +3,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { useNavigate, Link } from "react-router-dom";
 
-const Signup = ({ closeModal }) => {
+const Signup = ({ setUser, closeSignupModal }) => {
   //Navigate to Home if API send back token
   const navigate = useNavigate();
 
@@ -11,35 +11,40 @@ const Signup = ({ closeModal }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const handleName = (event) => setUsername(event.target.value);
   const handleEmail = (event) => setEmail(event.target.value);
   const handlePassword = (event) => setPassword(event.target.value);
   const handleSubmit = (event) => {
     event.preventDefault();
-
     const fetchData = async () => {
       try {
         const response = await axios.post(
           "https://vinted-clone-eld.herokuapp.com/user/signup",
           //   "https://lereacteur-vinted-api.herokuapp.com/user/signup",
-          { username: username, email: email, password: password }
+          { username, email, password }
         );
         console.log("response ==>", response);
-        Cookies.set("token", response.data.token);
+        if (response.data.token) {
+          setUser(response.data.token);
+          navigate("/");
+        }
+        // Cookies.set("token", response.data.token);
+        //get back to home page if sign up done
+        // if (Cookies.get("token").length > 0) navigate("/");
       } catch (error) {
         console.log("error ==>", error.message);
+        if (error.response.status === 409)
+          setErrorMessage("cet email est déjà utilisé");
       }
     };
     fetchData();
-
-    //get back to home page if sign up done
-    if (Cookies.get("token").length > 0) navigate("/");
   };
 
   return (
     <div className="signlog">
-      <button className="close" onClick={closeModal}>
+      <button className="close" onClick={closeSignupModal}>
         &times;
       </button>
       <h2>S'inscrire</h2>
