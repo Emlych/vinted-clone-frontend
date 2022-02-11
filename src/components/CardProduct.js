@@ -21,9 +21,9 @@ const CardProduct = ({ item }) => {
         {item.product_details.map((item, index) => {
           // const keys = Object.keys(item);
           return (
-            <div className="infos--details--line">
+            <div className="infos--details--line" key={index}>
               {/* <span className="grey">{item[keys[0]]}</span> */}
-              <span className="grey">{Object.values(item)[1]}</span>
+              <span className="grey">{Object.values(item)}</span>
             </div>
           );
         })}

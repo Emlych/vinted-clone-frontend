@@ -20,11 +20,10 @@ const Offer = () => {
           // `https://vinted-clone-eld.herokuapp.com/offer/${id}`
           `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
         );
-        // const offer = response.data.offers.find((elem) => elem._id === id);
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
-        console.log("error of ===>", error.response);
+        console.log("error of ===>", error.message);
       }
     };
     fetchData();

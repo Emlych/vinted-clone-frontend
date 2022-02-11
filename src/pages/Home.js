@@ -6,8 +6,10 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
 import CardProduct from "../components/CardProduct";
+//for nested routes use Outlet?
+import Signup from "./Signup";
 
-const Home = () => {
+const Home = ({ modal }) => {
   // States
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -23,7 +25,7 @@ const Home = () => {
         setData(response.data);
         setIsLoading(false);
       } catch (error) {
-        console.log("error ===>", error.response);
+        console.log("error ===>", error.message);
       }
     };
     fetchData();
@@ -35,19 +37,25 @@ const Home = () => {
       {isLoading ? (
         <span>En cours de chargement...</span>
       ) : (
-        <div className="offers">
-          {/* display a limited number of items with query.limit */}
-          Display limited number of items
-          {data.offers.map((item) => {
-            return (
-              <div>
-                {/* Opens Offer when click on CardProduct item */}
-                <Link to={`/offer/${item._id}`} key={item._id}>
-                  <CardProduct item={item} />
-                </Link>
-              </div>
-            );
-          })}
+        <div className="home">
+          <div className={modal ? "modal" : "hide"}>
+            <Signup />
+          </div>
+
+          <div className="offers">
+            {/* display a limited number of items with query.limit */}
+
+            {data.offers.map((item) => {
+              return (
+                <div key={item._id}>
+                  {/* Opens Offer when click on CardProduct item */}
+                  <Link to={`/offer/${item._id}`}>
+                    <CardProduct item={item} />
+                  </Link>
+                </div>
+              );
+            })}
+          </div>
         </div>
       )}
     </div>
