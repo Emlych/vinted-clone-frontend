@@ -203,7 +203,7 @@
 
 /* Signup and login pages */
 h2 {
-  margin-top: 80px;
+  margin-top: 50px;
   font-size: 24px;
   font-weight: 400;
 }
@@ -284,4 +284,17 @@ h2 {
   height: 100%;
   width: 100%;
   background-color: rgba(0, 0, 0, 0.6);
+}
+/* MODAL close button */
+.close {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  font-size: 25px;
+  color: black;
+  background-color: #fff;
+  border: none;
+}
+.close:hover {
+  cursor: pointer;
 }

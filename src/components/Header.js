@@ -3,7 +3,7 @@ import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 
-const Header = ({ openModal }) => {
+const Header = ({ openSignupModal, openLoginModal }) => {
   //Connected status
   const [isConnected, setIsConnected] = useState(false);
   const disconnect = () => {
@@ -32,12 +32,14 @@ const Header = ({ openModal }) => {
             ) : (
               <div className="">
                 <Link to={`/signup`}>
-                  <button className="btn white" onClick={openModal}>
+                  <button className="btn white" onClick={openSignupModal}>
                     S'inscrire
                   </button>
                 </Link>
                 <Link to={`/login`}>
-                  <button className="btn white">Se connecter</button>
+                  <button className="btn white" onClick={openLoginModal}>
+                    Se connecter
+                  </button>
                 </Link>
               </div>
             )}

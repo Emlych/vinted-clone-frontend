@@ -3,7 +3,7 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { useNavigate, Link } from "react-router-dom";
 
-const Signup = () => {
+const Signup = ({ closeModal }) => {
   //Navigate to Home if API send back token
   const navigate = useNavigate();
 
@@ -15,7 +15,6 @@ const Signup = () => {
   const handleName = (event) => setUsername(event.target.value);
   const handleEmail = (event) => setEmail(event.target.value);
   const handlePassword = (event) => setPassword(event.target.value);
-
   const handleSubmit = (event) => {
     event.preventDefault();
 
@@ -40,6 +39,9 @@ const Signup = () => {
 
   return (
     <div className="signlog">
+      <button className="close" onClick={closeModal}>
+        &times;
+      </button>
       <h2>S'inscrire</h2>
       <form onSubmit={handleSubmit}>
         <input

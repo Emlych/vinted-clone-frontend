@@ -8,8 +8,9 @@ import Hero from "../components/Hero";
 import CardProduct from "../components/CardProduct";
 //for nested routes use Outlet?
 import Signup from "./Signup";
+import Login from "./Login";
 
-const Home = ({ modal }) => {
+const Home = ({ signupModal, loginModal, closeModal }) => {
   // States
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -38,8 +39,11 @@ const Home = ({ modal }) => {
         <span>En cours de chargement...</span>
       ) : (
         <div className="home">
-          <div className={modal ? "modal" : "hide"}>
-            <Signup />
+          <div className={signupModal ? "modal" : "hide"}>
+            <Signup closeModal={closeModal} />
+          </div>
+          <div className={loginModal ? "modal" : "hide"}>
+            <Login />
           </div>
 
           <div className="offers">
