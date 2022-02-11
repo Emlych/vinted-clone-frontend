@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const Signup = ({ setUser, setSignupModal, setLoginModal }) => {
+const Signup = ({ setUser, signupModal, setSignupModal, setLoginModal }) => {
   //Navigate to Home if API send back token
   const navigate = useNavigate();
 
@@ -40,7 +40,7 @@ const Signup = ({ setUser, setSignupModal, setLoginModal }) => {
 
   window.addEventListener("click", (event) => {
     console.log("test du addEventListener");
-    if (event.target !== document.getElementById("signModal"))
+    if (signupModal && event.target !== document.getElementById("signModal"))
       setSignupModal(false);
   });
   return (
