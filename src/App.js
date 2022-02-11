@@ -20,25 +20,9 @@ function App() {
     setToken(token);
   };
 
-  // useEffect(() => {
-  //   if (Cookies.get("token")) {
-  //     setIsConnected(true);
-  //   }
-  // }, []);
-
-  //Open modal signup
+  //Open modal
   const [signupModal, setSignupModal] = useState(false);
-  const openSignupModal = () => setSignupModal(true);
-
-  //Open modal login
   const [loginModal, setLoginModal] = useState(false);
-  const openLoginModal = () => setLoginModal(true);
-
-  //Close modal signup
-  const closeSignupModal = () => {
-    setSignupModal(false);
-    console.log("close modal");
-  };
 
   return (
     <div className="app">
@@ -46,30 +30,30 @@ function App() {
         <Header
           token={token}
           setUser={setUser}
-          openSignupModal={openSignupModal}
-          openLoginModal={openLoginModal}
+          setSignupModal={setSignupModal}
+          setLoginModal={setLoginModal}
         />
+        {signupModal && (
+          <Signup
+            setUser={setUser}
+            setSignupModal={setSignupModal}
+            setLoginModal={setLoginModal}
+          />
+        )}
+        {loginModal && (
+          <Login
+            setUser={setUser}
+            setLoginModal={setLoginModal}
+            setSignupModal={setSignupModal}
+          />
+        )}
         <Routes>
-          {/* <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />} />
           <Route path="/offer/:id" element={<Offer />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/login" element={<Login />} /> */}
 
-          {/* Trying nested routes to create modal */}
-          <Route
-            path="/"
-            element={<Home signupModal={signupModal} loginModal={loginModal} />}
-          >
-            {/* chemin relatif, donc j'enlève le slash */}
-            <Route
-              path="signup"
-              element={
-                <Signup setUser={setUser} closeSignupModal={closeSignupModal} />
-              }
-            />
-            <Route path="login" element={<Login setUser={setUser} />} />
-          </Route>
-          <Route path="/offer/:id" element={<Offer />} />
+          {/* Solution without modal */}
+          {/* <Route path="/signup" element={<Signup setUser={setUser} />} />
+          <Route path="/login" element={<Login setUser={setUser} />} /> */}
         </Routes>
       </Router>
     </div>

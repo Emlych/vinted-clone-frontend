@@ -1,23 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
-// import Cookies from "js-cookie";
 
-const Header = ({ token, setUser, openSignupModal, openLoginModal }) => {
-  //Connected status
-  // const [isConnected, setIsConnected] = useState(false);
-  // const disconnect = () => {
-  //   Cookies.remove("token");
-  //   setIsConnected(false);
-  // };
-  // useEffect(() => {
-  //   if (Cookies.get("token")) {
-  //     setIsConnected(true);
-  //   }
-  // }, []);
-
+const Header = ({ token, setUser, setSignupModal, setLoginModal }) => {
   return (
     <div className="header">
+      {console.log("token in header ===>", token)}
       <div className="header__top">
         <Link to={`/`}>
           <img src={logo} alt="" />
@@ -25,23 +13,25 @@ const Header = ({ token, setUser, openSignupModal, openLoginModal }) => {
 
         <div className="header__interaction">
           <div className="interaction--left">
-            {/* {isConnected ? ( */}
             {token ? (
               <button className="btn pink" onClick={() => setUser(null)}>
                 Se déconnecter
               </button>
             ) : (
               <div className="">
-                <Link to={`/signup`}>
-                  <button className="btn white" onClick={openSignupModal}>
-                    S'inscrire
-                  </button>
-                </Link>
-                <Link to={`/login`}>
-                  <button className="btn white" onClick={openLoginModal}>
-                    Se connecter
-                  </button>
-                </Link>
+                <button
+                  className="btn white"
+                  onClick={() => setSignupModal(true)}
+                >
+                  S'inscrire
+                </button>
+
+                <button
+                  className="btn white"
+                  onClick={() => setLoginModal(true)}
+                >
+                  Se connecter
+                </button>
               </div>
             )}
           </div>

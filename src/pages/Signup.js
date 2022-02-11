@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import axios from "axios";
-import Cookies from "js-cookie";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-const Signup = ({ setUser, closeSignupModal }) => {
+const Signup = ({ setUser, setSignupModal, setLoginModal }) => {
   //Navigate to Home if API send back token
   const navigate = useNavigate();
 
@@ -30,9 +29,6 @@ const Signup = ({ setUser, closeSignupModal }) => {
           setUser(response.data.token);
           navigate("/");
         }
-        // Cookies.set("token", response.data.token);
-        //get back to home page if sign up done
-        // if (Cookies.get("token").length > 0) navigate("/");
       } catch (error) {
         console.log("error ==>", error.message);
         if (error.response.status === 409)
@@ -43,50 +39,59 @@ const Signup = ({ setUser, closeSignupModal }) => {
   };
 
   return (
-    <div className="signlog">
-      <button className="close" onClick={closeSignupModal}>
-        &times;
-      </button>
-      <h2>S'inscrire</h2>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="username"
-          id="username"
-          placeholder="Nom d'utilisateur"
-          value={username}
-          onChange={handleName}
-        />
-        <input
-          type="email"
-          name="email"
-          id="email"
-          placeholder="Email"
-          value={email}
-          onChange={handleEmail}
-        />
-        <input
-          type="password"
-          name="password"
-          id="password"
-          placeholder="Mot de passe"
-          value={password}
-          onChange={handlePassword}
-        />
-        <div className="input-checkbox">
-          <input type="checkbox" name="newsletter" id="newsletter" />
-          <label>S'inscrire à notre newsletter</label>
-        </div>
-        <p>
-          En m'inscrivant je confirme avoir lu et accepté les Termes &
-          Conditions et Politique de Confidentialité de Vinted. Je confirme
-          avoir au moins 18 ans.
-        </p>
-        <input type="submit" value="S'inscrire" className="submit primary" />
-        <Link to="/login">
-          <div className="message">Tu as déjà un compte ? Connecte-toi !</div>
-        </Link>
-      </form>
+    <div className="modal">
+      <div className="signlog">
+        <button className="close" onClick={() => setSignupModal(false)}>
+          &times;
+        </button>
+        <h2>S'inscrire</h2>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Nom d'utilisateur"
+            value={username}
+            onChange={handleName}
+          />
+          <input
+            type="email"
+            name="email"
+            id="email"
+            placeholder="Email"
+            value={email}
+            onChange={handleEmail}
+          />
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Mot de passe"
+            value={password}
+            onChange={handlePassword}
+          />
+          <div className="input-checkbox">
+            <input type="checkbox" name="newsletter" id="newsletter" />
+            <label>S'inscrire à notre newsletter</label>
+          </div>
+          <p>
+            En m'inscrivant je confirme avoir lu et accepté les Termes &
+            Conditions et Politique de Confidentialité de Vinted. Je confirme
+            avoir au moins 18 ans.
+          </p>
+          <input type="submit" value="S'inscrire" className="submit primary" />
+
+          <div
+            className="message"
+            onClick={() => {
+              setSignupModal(false);
+              setLoginModal(true);
+            }}
+          >
+            Tu as déjà un compte ? Connecte-toi !
+          </div>
+        </form>
+      </div>
     </div>
   );
 };
