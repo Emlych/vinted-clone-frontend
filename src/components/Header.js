@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 
 const Header = ({ token, setUser, setSignupModal, setLoginModal }) => {
+  const [search, setSearch] = useState("");
+  const handleInput = (event) => {
+    setSearch(event.target.value);
+  };
   return (
     <div className="header">
       {console.log("token in header ===>", token)}
@@ -10,6 +14,19 @@ const Header = ({ token, setUser, setSignupModal, setLoginModal }) => {
         <Link to={`/`}>
           <img src={logo} alt="" />
         </Link>
+
+        <div className="filter">
+          {/* Searchbar */}
+          <input
+            type="text"
+            name="searchbar"
+            id="searchbar"
+            placeholder="Recherche des articles"
+            value={search}
+            onChange={handleInput}
+          />
+          {/* Filters */}
+        </div>
 
         <div className="header__interaction">
           <div className="interaction--left">

@@ -38,9 +38,14 @@ const Signup = ({ setUser, setSignupModal, setLoginModal }) => {
     fetchData();
   };
 
+  window.addEventListener("click", (event) => {
+    console.log("test du addEventListener");
+    if (event.target !== document.getElementById("signModal"))
+      setSignupModal(false);
+  });
   return (
     <div className="modal">
-      <div className="signlog">
+      <div className="signlog" id="signModal">
         <button className="close" onClick={() => setSignupModal(false)}>
           &times;
         </button>
