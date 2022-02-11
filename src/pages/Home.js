@@ -13,9 +13,13 @@ const Home = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
+        // Filters Paramètres Query ==>  title : String
+        //Add a 2nd paramater
+
         const response = await axios.get(
           // "https://vinted-clone-eld.herokuapp.com/offers"
-          "https://lereacteur-vinted-api.herokuapp.com/offers"
+          "https://lereacteur-vinted-api.herokuapp.com/offers",
+          { params: { title: "zara" } }
         );
         setData(response.data);
         setIsLoading(false);

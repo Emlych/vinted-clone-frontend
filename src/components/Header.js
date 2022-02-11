@@ -3,10 +3,12 @@ import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 
 const Header = ({ token, setUser, setSignupModal, setLoginModal }) => {
+  //set title search for GET params query
   const [search, setSearch] = useState("");
   const handleInput = (event) => {
     setSearch(event.target.value);
   };
+
   return (
     <div className="header">
       {console.log("token in header ===>", token)}
@@ -25,7 +27,7 @@ const Header = ({ token, setUser, setSignupModal, setLoginModal }) => {
             value={search}
             onChange={handleInput}
           />
-          {/* Filters */}
+          {/* Filters Paramètres Query ==>  title : String */}
         </div>
 
         <div className="header__interaction">
