@@ -1,3 +1,5 @@
+//To do :
+// - errorMessage display
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -12,6 +14,7 @@ const Signup = ({ setUser, signupModal, setSignupModal, setLoginModal }) => {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
+  //Handle form infos
   const handleName = (event) => setUsername(event.target.value);
   const handleEmail = (event) => setEmail(event.target.value);
   const handlePassword = (event) => setPassword(event.target.value);
@@ -38,11 +41,11 @@ const Signup = ({ setUser, signupModal, setSignupModal, setLoginModal }) => {
     fetchData();
   };
 
+  //Close modal
   window.addEventListener("click", (event) => {
-    console.log("test du addEventListener");
-    if (signupModal && event.target !== document.getElementById("signModal"))
-      setSignupModal(false);
+    if (signupModal && event.target.id !== "openSignup") setSignupModal(false);
   });
+
   return (
     <div className="modal">
       <div className="signlog" id="signModal">

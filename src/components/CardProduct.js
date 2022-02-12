@@ -3,7 +3,7 @@ import React from "react";
 const CardProduct = ({ item }) => {
   return (
     <div className="card">
-      {console.log("item ===>", item)}
+      {/* {console.log("item ===>", item)} */}
       <div className="card__user">
         <div className="card__user--img">
           <img src={item.owner.account.avatar.url} alt="profile avatar" />

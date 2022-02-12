@@ -24,10 +24,32 @@ function App() {
   const [signupModal, setSignupModal] = useState(false);
   const [loginModal, setLoginModal] = useState(false);
 
+  //Search filter
+  const [search, setSearch] = useState("");
+  const [priceMin, setPriceMin] = useState("");
+  const [params, setParams] = useState({});
+  const handleInput = (event) => {
+    setSearch(event.target.value);
+    setParams({ title: search });
+  };
+  const handlePriceMin = (event) => {
+    setPriceMin(event.target.value);
+    const newParams = { ...params };
+    // console.log(newParams); //object with title if provided with, or empty
+    newParams.priceMin = priceMin;
+    // console.log(newParams);
+    setParams(newParams);
+    // console.log(params);
+  };
+
   return (
     <div className="app">
       <Router>
         <Header
+          search={search}
+          handleInput={handleInput}
+          priceMin={priceMin}
+          handlePriceMin={handlePriceMin}
           token={token}
           setUser={setUser}
           setSignupModal={setSignupModal}
@@ -44,12 +66,13 @@ function App() {
         {loginModal && (
           <Login
             setUser={setUser}
+            loginModal={loginModal}
             setLoginModal={setLoginModal}
             setSignupModal={setSignupModal}
           />
         )}
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home params={params} />} />
           <Route path="/offer/:id" element={<Offer />} />
 
           {/* Solution without modal */}
