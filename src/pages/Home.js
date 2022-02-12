@@ -9,15 +9,23 @@ const Home = ({ params }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 
+  // const
+
   // Fetch data from Vinted API
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Filters Paramètres Query ==>  title : String
         const response = await axios.get(
           // "https://vinted-clone-eld.herokuapp.com/offers"
           "https://lereacteur-vinted-api.herokuapp.com/offers",
-          { params: { title: params.title, priceMin: params.priceMin } }
+          {
+            params: {
+              title: params.title,
+              priceMin: params.priceMin,
+              priceMax: params.priceMax,
+              sort: params.sort,
+            },
+          }
         );
         setData(response.data);
         setIsLoading(false);

@@ -25,31 +25,41 @@ function App() {
   const [loginModal, setLoginModal] = useState(false);
 
   //Search filter
-  const [search, setSearch] = useState("");
-  const [priceMin, setPriceMin] = useState("");
-  const [params, setParams] = useState({});
+  const [params, setParams] = useState({ sort: "price-asc" });
   const handleInput = (event) => {
-    setSearch(event.target.value);
-    setParams({ title: search });
+    const newParams = { ...params };
+    newParams.title = event.target.value;
+    setParams(newParams);
   };
   const handlePriceMin = (event) => {
-    setPriceMin(event.target.value);
     const newParams = { ...params };
-    // console.log(newParams); //object with title if provided with, or empty
-    newParams.priceMin = priceMin;
-    // console.log(newParams);
+    newParams.priceMin = event.target.value;
     setParams(newParams);
-    // console.log(params);
+  };
+  const handlePriceMax = (event) => {
+    const newParams = { ...params };
+    newParams.priceMax = event.target.value;
+    setParams(newParams);
+  };
+  //Sort by price asc by default, if not desc with !isAsc
+  //In reacteur API : "price-asc", in own API : "asc"
+  const handleSort = () => {
+    const newParams = { ...params };
+    newParams.sort === "price-asc"
+      ? (newParams.sort = "price-desc")
+      : (newParams.sort = "price-asc");
+    setParams(newParams);
   };
 
   return (
     <div className="app">
       <Router>
         <Header
-          search={search}
           handleInput={handleInput}
-          priceMin={priceMin}
           handlePriceMin={handlePriceMin}
+          handlePriceMax={handlePriceMax}
+          handleSort={handleSort}
+          sort={params.sort}
           token={token}
           setUser={setUser}
           setSignupModal={setSignupModal}

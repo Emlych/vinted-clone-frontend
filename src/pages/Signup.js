@@ -78,6 +78,7 @@ const Signup = ({ setUser, signupModal, setSignupModal, setLoginModal }) => {
             value={password}
             onChange={handlePassword}
           />
+          <span>{errorMessage}</span>
           <div className="input-checkbox">
             <input type="checkbox" name="newsletter" id="newsletter" />
             <label>S'inscrire à notre newsletter</label>

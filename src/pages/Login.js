@@ -1,5 +1,6 @@
 //To do :
-// - errorMessage display
+// - useRef to close modal
+// - don't close modal if click on modal
 import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -72,7 +73,7 @@ const Login = ({ setUser, loginModal, setLoginModal, setSignupModal }) => {
             value="Se connecter"
             className="submit primary"
           />
-
+          <span>{errorMessage}</span>
           <div
             className="message"
             onClick={() => {
