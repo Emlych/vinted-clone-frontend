@@ -75,7 +75,7 @@ const Login = ({ setUser, loginModal, setLoginModal, setSignupModal }) => {
           />
           <span>{errorMessage}</span>
           <div
-            className="message"
+            className="message pointer"
             onClick={() => {
               setSignupModal(true);
               setLoginModal(false);

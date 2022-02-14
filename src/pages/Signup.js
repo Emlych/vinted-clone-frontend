@@ -122,7 +122,7 @@ const Signup = ({
           <input type="submit" value="S'inscrire" className="submit primary" />
 
           <div
-            className="message"
+            className="message pointer"
             onClick={() => {
               setSignupModal(false);
               setLoginModal(true);

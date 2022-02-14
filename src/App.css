@@ -6,7 +6,7 @@
   --primaryColor: #2cb1ba;
   --primaryHoverColor: #09adb6;
   --pinkColor: #c2175b;
-  --headerHeight: 80px;
+  --headerHeight: 70px;
 }
 * {
   text-decoration: none;
@@ -34,7 +34,8 @@
   background-color: var(--pinkColor);
   color: #fff;
 }
-.btn:hover {
+.btn:hover,
+.pointer:hover {
   cursor: pointer;
 }
 
@@ -72,6 +73,9 @@
 /* HEADER filters and searchbar */
 .filter {
   margin-left: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 .filter--search {
   position: relative;
@@ -95,8 +99,9 @@
 
 /* HEADER -- range */
 .range {
-  margin: 25px 0 5px 0;
-  padding: 25px 10px;
+  margin: 15px 0 5px 0;
+  padding: 25px 10px 0px;
+  width: 90%;
 }
 
 /* HEADER -- Toggle asc-desc */
@@ -148,6 +153,7 @@
   position: relative;
 }
 .hero img {
+  margin-top: var(--headerHeight);
   height: 455px;
   width: 100%;
   object-fit: cover;
