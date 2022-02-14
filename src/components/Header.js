@@ -9,7 +9,7 @@ import {
   faArrowDown,
   faArrowUp,
 } from "@fortawesome/free-solid-svg-icons";
-// import { Range } from "react-range";
+import { Range, getTrackBackground } from "react-range";
 
 const Header = ({
   token,
@@ -17,13 +17,13 @@ const Header = ({
   setSignupModal,
   setLoginModal,
   handleInput,
-  handlePriceMin,
-  handlePriceMax,
+  priceRange,
+  handlePriceRange,
+  // handlePriceMin,
+  // handlePriceMax,
   sort,
   handleSort,
 }) => {
-  //set title search for GET params query
-  // const [values, setValues] = useState([50]);
   return (
     <div className="header">
       <div className="header__top">
@@ -33,7 +33,6 @@ const Header = ({
 
         <div className="filter">
           {/* Searchbar */}
-
           {/* Filters Paramètres Query ==>  title : String */}
           <div className="filter--search">
             <FontAwesomeIcon icon={faSearch} />
@@ -47,29 +46,45 @@ const Header = ({
             />
           </div>
 
-          {/* <Range
-            step={0.5}
-            min={0}
-            max={700}
-            values={values}
-            onChange={(values) => {
-              handlePriceMax(values);
-            }}
-            renderTrack={({ props, children }) => (
-              <div
-                {...props}
-                style={{
-                  ...props.style,
-                  height: "6px",
-                  width: "100%",
-                  backgroundColor: "#ccc",
-                }}
-              >
-                {children}
-              </div>
-            )}
-            renderThumb={({ props }) => (
-              <div>
+          {/* Range */}
+          {/* Filters Paramètres Query ==>  priceMin and priceMax : Number */}
+          <div className="range">
+            <Range
+              step={0.5}
+              min={1}
+              max={500}
+              values={priceRange}
+              onChange={(priceRange) => handlePriceRange(priceRange)}
+              renderTrack={({ props, children }) => (
+                <div
+                  {...props}
+                  style={{
+                    ...props.style,
+                    height: "6px",
+                    width: "100%",
+                    backgroundColor: "#ccc",
+                  }}
+                >
+                  <div
+                    ref={props.ref}
+                    style={{
+                      height: "5px",
+                      width: "100%",
+                      borderRadius: "4px",
+                      background: getTrackBackground({
+                        colors: ["#ccc", "#09adb6", "#ccc"],
+                        min: 1,
+                        max: 500,
+                        values: priceRange,
+                      }),
+                      alignSelf: "center",
+                    }}
+                  >
+                    {children}
+                  </div>
+                </div>
+              )}
+              renderThumb={({ index, props }) => (
                 <div
                   {...props}
                   style={{
@@ -78,36 +93,44 @@ const Header = ({
                     width: "12px",
                     borderRadius: "25px",
                     backgroundColor: "#09adb6",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
-                />
-                <div
-                  {...props}
-                  style={{
-                    ...props.style,
-                    height: "12px",
-                    width: "12px",
-                    borderRadius: "25px",
-                    backgroundColor: "#09adb6",
-                  }}
-                />
-              </div>
-            )}
-          /> */}
+                >
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: "-32px",
+                      color: "white",
+                      backgroundColor: "#09adb6",
+                      padding: "5px 6px",
+                      borderRadius: "5px",
+                      fontSize: "14px",
+                      fontWeight: "400",
+                    }}
+                  >
+                    {priceRange[index]}€
+                  </div>
+                </div>
+              )}
+            />
+          </div>
 
           {/* Filters Paramètres Query ==>  priceMin : number */}
-          <input
+          {/* <input
             type="number"
             name="priceMin"
             id="priceMin"
             onChange={(event) => handlePriceMin(event)}
-          />
+          /> */}
           {/* Filters Paramètres Query ==>  priceMax : number */}
-          <input
+          {/* <input
             type="number"
             name="priceMax"
             id="priceMax"
             onChange={(event) => handlePriceMax(event)}
-          />
+          /> */}
 
           <div className="sort">
             Trier par prix:

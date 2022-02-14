@@ -1,10 +1,16 @@
 //To do :
 // - errorMessage display
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
-const Signup = ({ setUser, signupModal, setSignupModal, setLoginModal }) => {
+const Signup = ({
+  setUser,
+  signupModal,
+  setSignupModal,
+  setLoginModal,
+  onClickOutside,
+}) => {
   //Navigate to Home if API send back token
   const navigate = useNavigate();
 
@@ -42,12 +48,37 @@ const Signup = ({ setUser, signupModal, setSignupModal, setLoginModal }) => {
   };
 
   //Close modal
-  window.addEventListener("click", (event) => {
-    if (signupModal && event.target.id !== "openSignup") setSignupModal(false);
-  });
+  //assign current component instance's DOM to ref variable
+  const ref = useRef(null);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (ref.current && !ref.current.contains(event.target)) {
+        onClickOutside && onClickOutside();
+      }
+    };
+    //je vois pas ce que signifie ce true : capture, once ou passive?
+    //detect global click events on entire document
+    document.addEventListener("click", handleClickOutside, true);
+    return () => {
+      //unregister the click when component unmounted
+      document.removeEventListener("click", handleClickOutside, true);
+    };
+  }, [onClickOutside]);
+
+  if (!signupModal) return null;
+
+  // window.addEventListener("click", (event) => {
+  //   console.log(event.target.id);
+  //   if (
+  //     signupModal &&
+  //     event.target.id !== "openSignup" &&
+  //     event.target.id !== "signModal"
+  //   )
+  //     setSignupModal(false);
+  // });
 
   return (
-    <div className="modal">
+    <div ref={ref} className="modal">
       <div className="signlog" id="signModal">
         <button className="close" onClick={() => setSignupModal(false)}>
           &times;

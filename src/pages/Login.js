@@ -41,9 +41,9 @@ const Login = ({ setUser, loginModal, setLoginModal, setSignupModal }) => {
   };
 
   //Close modal
-  window.addEventListener("click", (event) => {
-    if (loginModal && event.target.id !== "openLogin") setLoginModal(false);
-  });
+  // window.addEventListener("click", (event) => {
+  //   if (loginModal && event.target.id !== "openLogin") setLoginModal(false);
+  // });
   return (
     <div className="modal">
       <div className="signlog">

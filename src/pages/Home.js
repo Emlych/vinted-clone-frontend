@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
 import CardProduct from "../components/CardProduct";
 
-const Home = ({ params }) => {
+const Home = ({ params, signupModal }) => {
   const [data, setData] = useState();
   const [isLoading, setIsLoading] = useState(true);
 

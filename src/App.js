@@ -31,16 +31,31 @@ function App() {
     newParams.title = event.target.value;
     setParams(newParams);
   };
-  const handlePriceMin = (event) => {
+
+  //without range
+  // const handlePriceMin = (event) => {
+  //   const newParams = { ...params };
+  //   newParams.priceMin = event.target.value;
+  //   setParams(newParams);
+  // };
+
+  //with range
+  const [priceRange, setPriceRange] = useState([2, 300]);
+  const handlePriceRange = (values) => {
     const newParams = { ...params };
-    newParams.priceMin = event.target.value;
+    newParams.priceMin = values[0];
+    newParams.priceMax = values[1];
     setParams(newParams);
+    setPriceRange(values);
+    console.log("priceRange of ==>", priceRange);
   };
-  const handlePriceMax = (event) => {
-    const newParams = { ...params };
-    newParams.priceMax = event.target.value;
-    setParams(newParams);
-  };
+
+  //priceMaw without range
+  // const handlePriceMax = (event) => {
+  //   const newParams = { ...params };
+  //   newParams.priceMax = event.target.value;
+  //   setParams(newParams);
+  // };
   //Sort by price asc by default, if not desc with !isAsc
   //In reacteur API : "price-asc", in own API : "asc"
   const handleSort = () => {
@@ -52,12 +67,14 @@ function App() {
   };
 
   return (
-    <div className="app">
+    <div className={signupModal ? "app noscroll" : "app"}>
       <Router>
         <Header
           handleInput={handleInput}
-          handlePriceMin={handlePriceMin}
-          handlePriceMax={handlePriceMax}
+          priceRange={priceRange}
+          // handlePriceMin={handlePriceMin}
+          // handlePriceMax={handlePriceMax}
+          handlePriceRange={handlePriceRange}
           handleSort={handleSort}
           sort={params.sort}
           token={token}
@@ -71,6 +88,9 @@ function App() {
             signupModal={signupModal}
             setSignupModal={setSignupModal}
             setLoginModal={setLoginModal}
+            onClickOutside={() => {
+              setSignupModal(false);
+            }}
           />
         )}
         {loginModal && (
@@ -82,7 +102,10 @@ function App() {
           />
         )}
         <Routes>
-          <Route path="/" element={<Home params={params} />} />
+          <Route
+            path="/"
+            element={<Home params={params} signupModal={signupModal} />}
+          />
           <Route path="/offer/:id" element={<Offer />} />
 
           {/* Solution without modal */}
