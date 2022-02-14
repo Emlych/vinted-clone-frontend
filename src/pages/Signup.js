@@ -52,9 +52,18 @@ const Signup = ({
   const ref = useRef(null);
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (ref.current && !ref.current.contains(event.target)) {
+      if (ref.current.id && !ref.current.contains(event.target.id)) {
+        console.log("i handle the click outside");
         onClickOutside && onClickOutside();
       }
+
+      console.log("ref.current ==>", ref.current);
+      console.log("onClickOutside ==>", onClickOutside);
+      console.log("event target ==>", event.target);
+      console.log(
+        "!ref.current.contains(event.target) ==>",
+        !ref.current.contains(event.target)
+      );
     };
     //je vois pas ce que signifie ce true : capture, once ou passive?
     //detect global click events on entire document
@@ -78,7 +87,7 @@ const Signup = ({
   // });
 
   return (
-    <div ref={ref} className="modal">
+    <div ref={ref} className="modal" id="modal">
       <div className="signlog" id="signModal">
         <button className="close" onClick={() => setSignupModal(false)}>
           &times;

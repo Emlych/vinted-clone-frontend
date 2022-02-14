@@ -19,8 +19,6 @@ const Header = ({
   handleInput,
   priceRange,
   handlePriceRange,
-  // handlePriceMin,
-  // handlePriceMax,
   sort,
   handleSort,
 }) => {
@@ -57,7 +55,8 @@ const Header = ({
               onChange={(priceRange) => handlePriceRange(priceRange)}
               renderTrack={({ props, children }) => (
                 <div
-                  {...props}
+                  onMouseDown={props.onMouseDown}
+                  onTouchStart={props.onTouchStart}
                   style={{
                     ...props.style,
                     height: "6px",
@@ -117,30 +116,15 @@ const Header = ({
             />
           </div>
 
-          {/* Filters Paramètres Query ==>  priceMin : number */}
-          {/* <input
-            type="number"
-            name="priceMin"
-            id="priceMin"
-            onChange={(event) => handlePriceMin(event)}
-          /> */}
-          {/* Filters Paramètres Query ==>  priceMax : number */}
-          {/* <input
-            type="number"
-            name="priceMax"
-            id="priceMax"
-            onChange={(event) => handlePriceMax(event)}
-          /> */}
-
           <div className="sort">
             Trier par prix:
             <div className="toggle">
               <button className="switch"></button>
               <button
                 onClick={handleSort}
-                className={sort === "price-asc" ? "slider asc" : "slider"}
+                className={sort === "asc" ? "slider asc" : "slider"}
               >
-                {sort === "price-asc" ? (
+                {sort === "asc" ? (
                   <FontAwesomeIcon icon={faArrowDown} />
                 ) : (
                   <FontAwesomeIcon icon={faArrowUp} />
@@ -161,7 +145,10 @@ const Header = ({
                 <button
                   id="openSignup"
                   className="btn white"
-                  onClick={() => setSignupModal(true)}
+                  onClick={() => {
+                    setSignupModal(true);
+                    document.body.style.overflow = "hidden";
+                  }}
                 >
                   S'inscrire
                 </button>
@@ -169,7 +156,10 @@ const Header = ({
                 <button
                   id="openLogin"
                   className="btn white"
-                  onClick={() => setLoginModal(true)}
+                  onClick={() => {
+                    setLoginModal(true);
+                    document.body.style.overflow = "hidden";
+                  }}
                 >
                   Se connecter
                 </button>
@@ -177,7 +167,9 @@ const Header = ({
             )}
           </div>
 
-          <button className="btn primary">Vends tes articles</button>
+          <Link to={"/publish"}>
+            <button className="btn primary">Vends tes articles</button>
+          </Link>
         </div>
       </div>
     </div>

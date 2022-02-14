@@ -5,10 +5,9 @@ import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
+import Publish from "./pages/Publish";
 import Cookies from "js-cookie";
 import { useState } from "react";
-
-//!!!ne jamais appeler useNavigate en dehors du routeur.
 
 function App() {
   //Cookies and navigation
@@ -25,7 +24,7 @@ function App() {
   const [loginModal, setLoginModal] = useState(false);
 
   //Search filter
-  const [params, setParams] = useState({ sort: "price-asc" });
+  const [params, setParams] = useState({ sort: "asc" });
   const handleInput = (event) => {
     const newParams = { ...params };
     newParams.title = event.target.value;
@@ -40,7 +39,7 @@ function App() {
   // };
 
   //with range
-  const [priceRange, setPriceRange] = useState([2, 300]);
+  const [priceRange, setPriceRange] = useState([5, 300]);
   const handlePriceRange = (values) => {
     const newParams = { ...params };
     newParams.priceMin = values[0];
@@ -60,9 +59,9 @@ function App() {
   //In reacteur API : "price-asc", in own API : "asc"
   const handleSort = () => {
     const newParams = { ...params };
-    newParams.sort === "price-asc"
-      ? (newParams.sort = "price-desc")
-      : (newParams.sort = "price-asc");
+    newParams.sort === "asc"
+      ? (newParams.sort = "desc")
+      : (newParams.sort = "asc");
     setParams(newParams);
   };
 
@@ -102,11 +101,12 @@ function App() {
           />
         )}
         <Routes>
-          <Route
-            path="/"
-            element={<Home params={params} signupModal={signupModal} />}
-          />
+          <Route path="/" element={<Home params={params} />} />
           <Route path="/offer/:id" element={<Offer />} />
+          <Route
+            path="/publish"
+            element={<Publish token={token} setLoginModal={setLoginModal} />}
+          />
 
           {/* Solution without modal */}
           {/* <Route path="/signup" element={<Signup setUser={setUser} />} />

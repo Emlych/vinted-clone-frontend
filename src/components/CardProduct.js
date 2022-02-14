@@ -3,12 +3,20 @@ import React from "react";
 const CardProduct = ({ item }) => {
   return (
     <div className="card">
-      {/* {console.log("item ===>", item)} */}
+      {console.log("item owner ===>", item.owner)}
       <div className="card__user">
         <div className="card__user--img">
-          <img src={item.owner.account.avatar.url} alt="profile avatar" />
+          {item.owner.account ? (
+            <img src={item.owner.account.avatar.url} alt="profile avatar" />
+          ) : (
+            ""
+          )}
         </div>
-        <div className="card__user--name">{item.owner.account.username}</div>
+        {item.owner.account ? (
+          <div className="card__user--name">{item.owner.account.username}</div>
+        ) : (
+          ""
+        )}
       </div>
       <div className="card__img">
         <img
