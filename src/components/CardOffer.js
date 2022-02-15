@@ -2,8 +2,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
+import Home from "../pages/Home";
 
-const CardOffer = ({ data }) => {
+const CardOffer = ({ data, setLoginModal }) => {
   return (
     <div className="offer">
       <div className="offer__img">
@@ -38,7 +39,7 @@ const CardOffer = ({ data }) => {
           </Link>
         ) : (
           //open modal
-          <div>Open modal </div>
+          <Home setLoginModal={setLoginModal(true)} />
         )}
       </div>
     </div>

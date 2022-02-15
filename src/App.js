@@ -100,7 +100,10 @@ function App() {
             path="/publish"
             element={<Publish setLoginModal={setLoginModal} />}
           />
-          <Route path="/payment" element={<Payment />} />
+          <Route
+            path="/payment"
+            element={<Payment setLoginModal={setLoginModal} />}
+          />
 
           {/* Solution without modal */}
           {/* <Route path="/signup" element={<Signup setUser={setUser} />} />

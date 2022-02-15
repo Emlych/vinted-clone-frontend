@@ -54,7 +54,7 @@ const Publish = ({ token, setLoginModal }) => {
     }
   };
 
-  return token ? (
+  return Cookies.get("userToken") ? (
     <div className="publish">
       <h2>Vends ton article</h2>
       <form onSubmit={handleSubmit}>
