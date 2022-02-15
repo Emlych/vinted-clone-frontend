@@ -49,7 +49,6 @@ function App() {
     newParams.priceMax = values[1];
     setParams(newParams);
     setPriceRange(values);
-    console.log("priceRange of ==>", priceRange);
   };
 
   //Sort by price asc by default, if not desc with !isAsc

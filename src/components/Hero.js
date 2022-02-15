@@ -1,5 +1,6 @@
 import React from "react";
 import hero from "../assets/hero.jpg";
+import { Link } from "react-router-dom";
 
 const Hero = () => {
   return (
@@ -7,7 +8,11 @@ const Hero = () => {
       <img src={hero} alt="" />
       <div className="hero__container">
         <p>Prêts à faire du tri dans vos placards ?</p>
-        <button className="primary">Vends maintenant</button>
+        <Link to={"/publish"}>
+          <button className="primary" onClick>
+            Vends maintenant
+          </button>
+        </Link>
       </div>
     </div>
   );

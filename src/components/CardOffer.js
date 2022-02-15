@@ -3,6 +3,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 import Home from "../pages/Home";
+import profilePic from "../assets/profilePic.svg";
 
 const CardOffer = ({ data, setLoginModal }) => {
   return (
@@ -27,7 +28,12 @@ const CardOffer = ({ data, setLoginModal }) => {
           <div className="block--name">{data.product_name}</div>
           <div className="block--description">{data.product_description}</div>
           <div className="block--user">
-            <img src={data.owner.account.avatar.url} alt="avatar" />
+            {data.owner.account.avatar ? (
+              <img src={data.owner.account.avatar.url} alt="avatar" />
+            ) : (
+              <img src={profilePic} alt="default profile" />
+            )}
+
             <div className="user--name">{data.owner.account.username}</div>
           </div>
         </div>

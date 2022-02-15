@@ -54,7 +54,6 @@ const Signup = ({
         console.log("i handle the click outside");
         onClickOutside && onClickOutside();
       }
-
       console.log("ref.current ==>", ref.current);
       console.log("onClickOutside ==>", onClickOutside);
       console.log("event target ==>", event.target);
