@@ -16,7 +16,7 @@ const CardProduct = ({ item }) => {
               <img src={profilePic} alt="default profile" />
             )}
           </div>
-          <div className="card__user--name">{item.owner.account.username}</div>
+          <div className="grey">{item.owner.account.username}</div>
         </div>
       ) : (
         ""

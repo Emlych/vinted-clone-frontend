@@ -20,7 +20,7 @@ const Payment = () => {
   const total = (price + 0.4 + 0.8).toFixed(2);
 
   return (
-    <div className="payment">
+    <div className="payment grey-box">
       <div className="payment__container">
         <h3>Résumé de la commande</h3>
         <div className="payment__detail">

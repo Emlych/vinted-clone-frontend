@@ -34,13 +34,60 @@
   background-color: var(--pinkColor);
   color: #fff;
 }
+.btn {
+  height: 30px;
+  width: 115px;
+  font-size: 12px;
+  border-radius: 5px;
+  border: 1px solid var(--primaryColor);
+  margin-right: 15px;
+}
 .btn:hover,
 .pointer:hover,
-button:hover {
+button:hover,
+.close:hover {
   cursor: pointer;
 }
-.bold {
+/* Fonts */
+.card__user--name,
+.signlog p,
+.message {
+  font-size: 12px;
+}
+.searchbar,
+.sort,
+.infos--details--line span,
+.signlog .submit {
+  font-size: 14px;
+}
+.offer button {
+  font-size: 16px;
+}
+.hero__container {
+  font-size: 34px;
+}
+.hero__container button {
+  font-size: 20px;
+}
+.infos--price,
+.h2,
+.close {
+  font-size: 24px;
+}
+.bold,
+.block--name {
   font-weight: 700;
+}
+.h2 {
+  font-weight: 400;
+}
+/* Pages general : publish, payment and no modal */
+.grey-box {
+  padding-top: calc(2 * var(--headerHeight));
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: var(--primaryBackgroundColor);
+  overflow-y: scroll;
 }
 /* -------------- */
 /* HEADER */
@@ -59,18 +106,9 @@ button:hover {
 .header__top img {
   height: 40px;
 }
-
 .header__interaction {
   display: flex;
   align-items: center;
-}
-.btn {
-  height: 30px;
-  width: 115px;
-  font-size: 12px;
-  border-radius: 5px;
-  border: 1px solid var(--primaryColor);
-  margin-right: 15px;
 }
 
 /* HEADER filters and searchbar */
@@ -97,7 +135,6 @@ button:hover {
   height: 33px;
   border: none;
   outline: none;
-  font-size: 14px;
 }
 
 /* HEADER -- range */
@@ -112,7 +149,6 @@ button:hover {
   margin-top: 10px;
   display: flex;
   align-items: center;
-  font-size: 14px;
 }
 .toggle {
   padding-left: 10px;
@@ -172,10 +208,8 @@ button:hover {
   flex-direction: column;
   justify-content: center;
   padding: 32px;
-  font-size: 34px;
 }
 .hero__container button {
-  font-size: 20px;
   width: 100%;
   border-radius: 5px;
   border: 1px solid var(--primaryColor);
@@ -219,10 +253,6 @@ button:hover {
   border-radius: 50%;
   margin-right: 8px;
 }
-.card__user--name {
-  color: var(--secondaryFontColor);
-  font-size: 12px;
-}
 .card__img img {
   object-fit: cover;
   object-position: center;
@@ -250,7 +280,6 @@ button:hover {
   padding: 40px;
 }
 .infos--price {
-  font-size: 24px;
   line-height: 32px;
   color: #111;
 }
@@ -265,17 +294,12 @@ button:hover {
 .infos--details--line span {
   flex: 1 1;
   text-transform: uppercase;
-  font-size: 14px;
 }
 .offer__block {
   padding-top: 40px;
 }
 .block--name {
-  font-weight: 700;
   padding-bottom: 20px;
-}
-.block--description {
-  color: var(--secondaryFontColor);
 }
 .block--user {
   display: flex;
@@ -287,15 +311,11 @@ button:hover {
   object-fit: cover;
   border-radius: 50%;
   margin-right: 8px;
-  background-color: black;
 }
 .offer button {
   width: 100%;
-  background-color: var(--primaryColor);
-  color: white;
   border: 1px solid var(--primaryColor);
   border-radius: 4px;
-  font-size: 16px;
   height: 36px;
   padding: 0 16px;
   line-height: 36px;
@@ -305,8 +325,6 @@ button:hover {
 /* Signup and login pages */
 h2 {
   margin-top: 50px;
-  font-size: 24px;
-  font-weight: 400;
 }
 .modal-content {
   margin: 5vh auto;
@@ -331,7 +349,6 @@ h2 {
   padding: 20px;
   display: flex;
   flex-direction: column;
-
   width: 275px;
 }
 .signlog input {
@@ -355,7 +372,6 @@ h2 {
   color: var(--primaryFontColor);
 }
 .signlog p {
-  font-size: 12px;
   color: var(--primaryFontColor);
   text-align: left;
   margin-bottom: 20px;
@@ -363,13 +379,11 @@ h2 {
 .signlog .submit {
   border-radius: 5px;
   color: #fff;
-  font-size: 15px;
   height: 45px;
   border: none;
 }
 .message {
   color: var(--primaryColor);
-  font-size: 12px;
 }
 
 /* MODAL */
@@ -394,24 +408,12 @@ h2 {
   position: absolute;
   top: 15px;
   right: 20px;
-  font-size: 25px;
   color: black;
   background-color: #fff;
   border: none;
 }
-.close:hover {
-  cursor: pointer;
-}
 
 /* PUBLISH  */
-.publish {
-  padding-top: calc(2 * var(--headerHeight));
-  padding-left: 30px;
-  padding-right: 30px;
-  background-color: var(--primaryBackgroundColor);
-  height: 100vh;
-  overflow-y: scroll;
-}
 .publish__container {
   background-color: #fff;
   margin: 20px 0;
@@ -445,14 +447,6 @@ h2 {
 }
 
 /* PAYMENT */
-.payment {
-  padding-top: calc(2 * var(--headerHeight));
-  padding-left: 30px;
-  padding-right: 30px;
-  background-color: var(--primaryBackgroundColor);
-  height: 100vh;
-  overflow-y: scroll;
-}
 .payment button {
   width: 100%;
   margin-top: 20px;
@@ -479,9 +473,4 @@ h2 {
 }
 .detail--line-text {
   color: var(--secondaryFontColor);
-}
-
-/* NO MODAL */
-.nomodal {
-  padding-top: calc(2 * var(--headerHeight));
 }

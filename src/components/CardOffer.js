@@ -26,7 +26,7 @@ const CardOffer = ({ data, setLoginModal }) => {
 
         <div className="offer__block">
           <div className="block--name">{data.product_name}</div>
-          <div className="block--description">{data.product_description}</div>
+          <div className="grey">{data.product_description}</div>
           <div className="block--user">
             {data.owner.account.avatar ? (
               <img src={data.owner.account.avatar.secure_url} alt="avatar" />
@@ -42,7 +42,7 @@ const CardOffer = ({ data, setLoginModal }) => {
             to={`/payment`}
             state={{ title: data.product_name, price: data.product_price }}
           >
-            <button>Acheter</button>
+            <button className="primary">Acheter</button>
           </Link>
         ) : (
           //open modal

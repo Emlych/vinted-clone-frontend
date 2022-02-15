@@ -37,7 +37,7 @@ const NomodalLogin = ({ setUser }) => {
   };
 
   return (
-    <div className="signlog nomodal">
+    <div className="signlog grey-box">
       <h2>Se connecter</h2>
       <form onSubmit={handleSubmit}>
         <input

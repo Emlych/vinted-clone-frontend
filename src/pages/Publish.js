@@ -56,7 +56,7 @@ const Publish = () => {
   };
 
   return Cookies.get("userToken") ? (
-    <div className="publish">
+    <div className="publish grey-box">
       <h2>Vends ton article</h2>
       <form onSubmit={handleSubmit}>
         <div className="publish__container">
