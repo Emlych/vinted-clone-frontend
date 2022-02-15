@@ -1,7 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Navigate } from "react-router-dom";
 import Cookies from "js-cookie";
-import Home from "../pages/Home";
+// import Home from "../pages/Home";
 import profilePic from "../assets/profilePic.svg";
 
 const CardOffer = ({ data, setLoginModal }) => {
@@ -46,7 +46,8 @@ const CardOffer = ({ data, setLoginModal }) => {
           </Link>
         ) : (
           //open modal
-          <Home setLoginModal={setLoginModal(true)} />
+          <Navigate to="/" />
+          // <Home setLoginModal={setLoginModal(true)} />
         )}
       </div>
     </div>
