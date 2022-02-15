@@ -60,6 +60,9 @@ function App() {
     setParams(newParams);
   };
 
+  //Data for specific offer
+  const [dataId, setDataId] = useState();
+
   return (
     <div className="app">
       <Router>

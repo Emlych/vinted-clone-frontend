@@ -5,7 +5,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import CardOffer from "../components/CardOffer";
 
-const Offer = () => {
+const Offer = ({ dataId }) => {
   //Select specific data
   const { id } = useParams();
 
