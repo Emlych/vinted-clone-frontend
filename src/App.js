@@ -1,5 +1,10 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  useParams,
+} from "react-router-dom";
 import Header from "./components/Header";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
@@ -8,7 +13,8 @@ import Login from "./pages/Login";
 import Publish from "./pages/Publish";
 import Payment from "./pages/Payment";
 import Cookies from "js-cookie";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
 
 function App() {
   //Cookies and navigation
@@ -62,6 +68,24 @@ function App() {
 
   //Data for specific offer
   const [dataId, setDataId] = useState();
+  const { id } = useParams();
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    const fetchData = async () => {
+      console.log("i have been launched because of dependancy id ==>", id);
+      try {
+        const response = await axios.get(
+          `https://vinted-clone-eld.herokuapp.com/offer/${id}`
+          // `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
+        );
+        setDataId(response.data);
+        setIsLoading(false);
+      } catch (error) {
+        console.log("error of ===>", error.message);
+      }
+    };
+    fetchData();
+  }, [id]);
 
   return (
     <div className="app">
@@ -98,7 +122,10 @@ function App() {
         )}
         <Routes>
           <Route path="/" element={<Home params={params} />} />
-          <Route path="/offer/:id" element={<Offer />} />
+          <Route
+            path="/offer/:id"
+            element={<Offer dataId={dataId} isLoading={isLoading} />}
+          />
           <Route
             path="/publish"
             element={<Publish setLoginModal={setLoginModal} />}
