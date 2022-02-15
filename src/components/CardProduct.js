@@ -1,4 +1,5 @@
 import React from "react";
+import profilePic from "../assets/profilePic.svg";
 
 const CardProduct = ({ item }) => {
   return (
@@ -10,7 +11,7 @@ const CardProduct = ({ item }) => {
               {item.owner.account.avatar ? (
                 <img src={item.owner.account.avatar.url} alt="profile avatar" />
               ) : (
-                ""
+                <img src={profilePic} alt="default profile" />
               )}
             </div>
             <div className="card__user--name">
