@@ -1,5 +1,4 @@
 // Reste à faire`
-// - faire fonctionner publication d'annonce
 // - preview picture avec state preview,setPreview URL.createObjectURL(event.target.files[0])
 
 import React, { useState } from "react";

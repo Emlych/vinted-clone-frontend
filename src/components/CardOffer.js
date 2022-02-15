@@ -1,4 +1,3 @@
-//Reste à faire : css flex
 import React from "react";
 import { Link } from "react-router-dom";
 import Cookies from "js-cookie";

@@ -9,9 +9,7 @@ const Hero = () => {
       <div className="hero__container">
         <p>Prêts à faire du tri dans vos placards ?</p>
         <Link to={"/publish"}>
-          <button className="primary" onClick>
-            Vends maintenant
-          </button>
+          <button className="primary">Vends maintenant</button>
         </Link>
       </div>
     </div>
