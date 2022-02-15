@@ -344,6 +344,10 @@ h2 {
   justify-content: center;
   align-items: center;
 }
+.nomodal {
+  padding-top: calc(2 * var(--headerHeight));
+  margin: 0 auto;
+}
 .signlog form {
   margin: 20px 0;
   padding: 20px;

@@ -38,7 +38,7 @@ const NomodalSignup = ({ setUser }) => {
     fetchData();
   };
   return (
-    <div className="signlog" id="signModal">
+    <div className="signlog nomodal" id="signModal">
       <h2>S'inscrire</h2>
       <form onSubmit={handleSubmit}>
         <input
