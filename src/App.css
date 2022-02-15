@@ -185,7 +185,20 @@
   justify-content: space-around;
   flex-wrap: wrap;
 }
-
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.pages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.page {
+  margin-right: 15px;
+}
 /* PRODUCT CARD */
 .card {
   padding: 5px;
@@ -222,11 +235,11 @@
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: calc(var(--headerHeight) + 30px) 30px 0;
+  padding: calc(var(--headerHeight) * 2 + 30px) 30px 0;
   height: 90vh;
 }
 .offer__img img {
-  min-height: 600px;
+  height: 400px;
   object-fit: fill;
 }
 .offer__infos {
@@ -357,7 +370,6 @@ h2 {
 
 /* MODAL */
 .noscroll {
-  background-color: red;
   overflow-y: hidden;
 }
 .hide {

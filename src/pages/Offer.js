@@ -18,8 +18,8 @@ const Offer = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          // `https://vinted-clone-eld.herokuapp.com/offer/${id}`
-          `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
+          `https://vinted-clone-eld.herokuapp.com/offer/${id}`
+          // `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
         );
         setData(response.data);
         setIsLoading(false);

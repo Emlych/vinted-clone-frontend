@@ -89,7 +89,13 @@ const Signup = ({
   return (
     <div ref={ref} className="modal" id="modal">
       <div className="signlog" id="signModal">
-        <button className="close" onClick={() => setSignupModal(false)}>
+        <button
+          className="close"
+          onClick={() => {
+            setSignupModal(false);
+            document.body.style.overflow = "scroll";
+          }}
+        >
           &times;
         </button>
         <h2>S'inscrire</h2>

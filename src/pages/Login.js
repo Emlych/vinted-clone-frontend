@@ -47,7 +47,13 @@ const Login = ({ setUser, loginModal, setLoginModal, setSignupModal }) => {
   return (
     <div className="modal">
       <div className="signlog">
-        <button className="close" onClick={() => setLoginModal(false)}>
+        <button
+          className="close"
+          onClick={() => {
+            setLoginModal(false);
+            document.body.style.overflow = "scroll";
+          }}
+        >
           &times;
         </button>
         <h2>Se connecter</h2>

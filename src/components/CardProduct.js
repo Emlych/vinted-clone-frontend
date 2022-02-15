@@ -3,7 +3,6 @@ import React from "react";
 const CardProduct = ({ item }) => {
   return (
     <div className="card">
-      {console.log("item owner ===>", item.owner)}
       <div className="card__user">
         <div className="card__user--img">
           {item.owner.account ? (

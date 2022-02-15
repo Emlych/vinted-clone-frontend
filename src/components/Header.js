@@ -1,5 +1,3 @@
-//to do : add range
-
 import React from "react";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
@@ -45,7 +43,6 @@ const Header = ({
           </div>
 
           {/* Range */}
-          {/* Filters Paramètres Query ==>  priceMin and priceMax : Number */}
           <div className="range">
             <Range
               step={0.5}

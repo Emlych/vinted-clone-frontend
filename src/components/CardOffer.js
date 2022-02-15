@@ -3,6 +3,7 @@ import React from "react";
 const CardOffer = ({ data }) => {
   return (
     <div className="offer">
+      {console.log(data)}
       <div className="offer__img">
         <img src={data.product_image.url} alt={data.product_name} />
       </div>

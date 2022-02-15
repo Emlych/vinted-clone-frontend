@@ -27,7 +27,7 @@ function App() {
   const [params, setParams] = useState({ sort: "asc" });
   const handleInput = (event) => {
     const newParams = { ...params };
-    newParams.title = event.target.value;
+    newParams.product_name = event.target.value;
     setParams(newParams);
   };
 
@@ -66,13 +66,11 @@ function App() {
   };
 
   return (
-    <div className={signupModal ? "app noscroll" : "app"}>
+    <div className="app">
       <Router>
         <Header
           handleInput={handleInput}
           priceRange={priceRange}
-          // handlePriceMin={handlePriceMin}
-          // handlePriceMax={handlePriceMax}
           handlePriceRange={handlePriceRange}
           handleSort={handleSort}
           sort={params.sort}

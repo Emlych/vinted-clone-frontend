@@ -1,7 +1,3 @@
-//Reste à faire
-// - lien vers back eld
-// - pagination
-
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -16,17 +12,18 @@ const Home = ({ params }) => {
   // Fetch data from Vinted API
   useEffect(() => {
     const fetchData = async () => {
+      console.log(params);
       try {
         const response = await axios.get(
           "https://vinted-clone-eld.herokuapp.com/offers",
           // "https://lereacteur-vinted-api.herokuapp.com/offers",
           {
             params: {
-              title: params.title,
+              title: params.product_name,
               priceMin: params.priceMin,
               priceMax: params.priceMax,
               sort: params.sort,
-              limit: 10,
+              limit: 8,
               page: page,
             },
           }
@@ -59,8 +56,13 @@ const Home = ({ params }) => {
             })}
           </div>
           <div className="pages">
-            <button onClick={() => setPage(page - 1)}>Previous</button>
-            <button onClick={() => setPage(page + 1)}>Next</button>
+            <button className="btn primary" onClick={() => setPage(page - 1)}>
+              Previous
+            </button>
+            <div className="page">{page}</div>
+            <button className="btn primary" onClick={() => setPage(page + 1)}>
+              Next
+            </button>
           </div>
         </div>
       )}
