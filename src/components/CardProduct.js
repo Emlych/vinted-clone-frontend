@@ -4,24 +4,20 @@ import profilePic from "../assets/profilePic.svg";
 const CardProduct = ({ item }) => {
   return (
     <div className="card">
-      <div className="card__user">
-        {item.owner ? (
-          <div>
-            <div className="card__user--img">
-              {item.owner.account.avatar ? (
-                <img src={item.owner.account.avatar.url} alt="profile avatar" />
-              ) : (
-                <img src={profilePic} alt="default profile" />
-              )}
-            </div>
-            <div className="card__user--name">
-              {item.owner.account.username}
-            </div>
+      {item.owner ? (
+        <div className="card__user">
+          <div className="card__user--img">
+            {item.owner.account.avatar ? (
+              <img src={item.owner.account.avatar.url} alt="profile avatar" />
+            ) : (
+              <img src={profilePic} alt="default profile" />
+            )}
           </div>
-        ) : (
-          ""
-        )}
-      </div>
+          <div className="card__user--name">{item.owner.account.username}</div>
+        </div>
+      ) : (
+        ""
+      )}
 
       <div className="card__img">
         <img
