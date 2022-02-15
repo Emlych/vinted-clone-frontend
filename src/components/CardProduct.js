@@ -8,7 +8,10 @@ const CardProduct = ({ item }) => {
         <div className="card__user">
           <div className="card__user--img">
             {item.owner.account.avatar ? (
-              <img src={item.owner.account.avatar.url} alt="profile avatar" />
+              <img
+                src={item.owner.account.avatar.secure_url}
+                alt="profile avatar"
+              />
             ) : (
               <img src={profilePic} alt="default profile" />
             )}
