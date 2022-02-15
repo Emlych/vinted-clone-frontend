@@ -6,6 +6,7 @@ import Offer from "./pages/Offer";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 import Publish from "./pages/Publish";
+import Payment from "./pages/Payment";
 import Cookies from "js-cookie";
 import { useState } from "react";
 
@@ -31,7 +32,7 @@ function App() {
     setParams(newParams);
   };
 
-  //without range
+  //without range (same for priceMax)
   // const handlePriceMin = (event) => {
   //   const newParams = { ...params };
   //   newParams.priceMin = event.target.value;
@@ -49,12 +50,6 @@ function App() {
     console.log("priceRange of ==>", priceRange);
   };
 
-  //priceMaw without range
-  // const handlePriceMax = (event) => {
-  //   const newParams = { ...params };
-  //   newParams.priceMax = event.target.value;
-  //   setParams(newParams);
-  // };
   //Sort by price asc by default, if not desc with !isAsc
   //In reacteur API : "price-asc", in own API : "asc"
   const handleSort = () => {
@@ -103,8 +98,9 @@ function App() {
           <Route path="/offer/:id" element={<Offer />} />
           <Route
             path="/publish"
-            element={<Publish token={token} setLoginModal={setLoginModal} />}
+            element={<Publish setLoginModal={setLoginModal} />}
           />
+          <Route path="/payment" element={<Payment />} />
 
           {/* Solution without modal */}
           {/* <Route path="/signup" element={<Signup setUser={setUser} />} />

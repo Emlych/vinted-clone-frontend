@@ -1,3 +1,5 @@
+//Reste à faire : pagination conditions
+
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -55,6 +57,7 @@ const Home = ({ params }) => {
               );
             })}
           </div>
+          {/* Add pagination conditions */}
           <div className="pages">
             <button className="btn primary" onClick={() => setPage(page - 1)}>
               Previous

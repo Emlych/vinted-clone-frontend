@@ -1,9 +1,11 @@
+//Reste à faire : css flex
 import React from "react";
+import { Link } from "react-router-dom";
+import Cookies from "js-cookie";
 
 const CardOffer = ({ data }) => {
   return (
     <div className="offer">
-      {console.log(data)}
       <div className="offer__img">
         <img src={data.product_image.url} alt={data.product_name} />
       </div>
@@ -30,8 +32,14 @@ const CardOffer = ({ data }) => {
             <div className="user--name">{data.owner.account.username}</div>
           </div>
         </div>
-
-        <button>Acheter</button>
+        {Cookies.get("userToken") ? (
+          <Link to={`/payment`}>
+            <button>Acheter</button>
+          </Link>
+        ) : (
+          //open modal
+          <div>Open modal </div>
+        )}
       </div>
     </div>
   );

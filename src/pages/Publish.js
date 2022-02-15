@@ -41,7 +41,7 @@ const Publish = ({ token, setLoginModal }) => {
         //      { title: "robe art deco" },
         {
           headers: {
-            authorization: `Bearer ${Cookies.get("token")}`,
+            authorization: `Bearer ${Cookies.get("userToken")}`,
             "Content-Type": "multipart/form-data",
           },
         }
