@@ -3,12 +3,15 @@
 // - preview picture avec state preview,setPreview URL.createObjectURL(event.target.files[0])
 
 import React, { useState } from "react";
-import Home from "./Home";
+// import Login from "./Login";
 import axios from "axios";
-// import { Navigate } from "react-router-dom";
+import { useNavigate, Navigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
-const Publish = ({ setLoginModal }) => {
+const Publish = ({ setLoginModal, setSignupModal }) => {
+  //navigation
+  const navigate = useNavigate();
+
   //Load pictures
   const [picture, setPicture] = useState({});
   const [title, setTitle] = useState("");
@@ -45,6 +48,7 @@ const Publish = ({ setLoginModal }) => {
         }
       );
       console.log(response.data);
+      navigate("/");
       //     alert(JSON.stringify(response.data));
     } catch (error) {
       console.log("error ==>", error.message);
@@ -93,7 +97,7 @@ const Publish = ({ setLoginModal }) => {
         </div>
         <div className="publish__container">
           <div className="publish__line">
-            <label htmlFor="brand">Titre</label>
+            <label htmlFor="brand">Marque</label>
             <input
               type="text"
               name="brand"
@@ -168,10 +172,11 @@ const Publish = ({ setLoginModal }) => {
     </div>
   ) : (
     //ouvrir modal login
-    <Home setLoginModal={setLoginModal(true)} />
+
+    // <Login setLoginModal={setLoginModal} setSignupModal={setSignupModal} />
 
     // If no modal and only routes
-    // <Navigate to="/login" />
+    <Navigate to="/login" />
   );
 };
 

@@ -30,9 +30,6 @@ const Home = ({ params }) => {
             },
           }
         );
-        // const response = await axios.get(
-        //   `https://vinted-clone-eld.herokuapp.com/offers?title=${params.product_name}&sort=${params.sort}&priceMin="${params.priceMin}&priceMax="${params.priceMax}&limit=8&page=${page}`
-        // );
         console.log("response data ===>", response.data);
         setData(response.data);
         setIsLoading(false);
@@ -60,7 +57,7 @@ const Home = ({ params }) => {
               );
             })}
           </div>
-          {/* Add pagination conditions */}
+
           <div className="pages">
             {page === 1 ? (
               <div className="page white">

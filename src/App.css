@@ -480,3 +480,8 @@ h2 {
 .detail--line-text {
   color: var(--secondaryFontColor);
 }
+
+/* NO MODAL */
+.nomodal {
+  padding-top: calc(2 * var(--headerHeight));
+}

@@ -4,7 +4,9 @@ import Header from "./components/Header";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import Signup from "./pages/Signup";
+import NomodalSignup from "./pages/NomodalSignup";
 import Login from "./pages/Login";
+import NomodalLogin from "./pages/NomodalLogin";
 import Publish from "./pages/Publish";
 import Payment from "./pages/Payment";
 import Cookies from "js-cookie";
@@ -104,10 +106,8 @@ function App() {
             path="/payment"
             element={<Payment setLoginModal={setLoginModal} />}
           />
-
-          {/* Solution without modal */}
-          {/* <Route path="/signup" element={<Signup setUser={setUser} />} />
-          <Route path="/login" element={<Login setUser={setUser} />} /> */}
+          <Route path="/login" element={<NomodalLogin setUser={setUser} />} />
+          <Route path="/signup" element={<NomodalSignup setUser={setUser} />} />
         </Routes>
       </Router>
     </div>
