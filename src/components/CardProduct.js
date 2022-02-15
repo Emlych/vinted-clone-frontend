@@ -7,7 +7,11 @@ const CardProduct = ({ item }) => {
         {item.owner ? (
           <div>
             <div className="card__user--img">
-              <img src={item.owner.account.avatar.url} alt="profile avatar" />
+              {item.owner.account.avatar ? (
+                <img src={item.owner.account.avatar.url} alt="profile avatar" />
+              ) : (
+                ""
+              )}
             </div>
             <div className="card__user--name">
               {item.owner.account.username}
