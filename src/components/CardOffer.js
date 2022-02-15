@@ -46,8 +46,7 @@ const CardOffer = ({ data, setLoginModal }) => {
           </Link>
         ) : (
           //open modal
-          <Navigate to="/" />
-          // <Home setLoginModal={setLoginModal(true)} />
+          <Navigate to="/login" />
         )}
       </div>
     </div>
