@@ -8,7 +8,7 @@ import axios from "axios";
 import { useNavigate, Navigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
-const Publish = ({ setLoginModal, setSignupModal }) => {
+const Publish = () => {
   //navigation
   const navigate = useNavigate();
 
@@ -171,11 +171,6 @@ const Publish = ({ setLoginModal, setSignupModal }) => {
       </form>
     </div>
   ) : (
-    //ouvrir modal login
-
-    // <Login setLoginModal={setLoginModal} setSignupModal={setSignupModal} />
-
-    // If no modal and only routes
     <Navigate to="/login" />
   );
 };
