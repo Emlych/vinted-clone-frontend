@@ -31,6 +31,7 @@ const Publish = ({ token, setLoginModal }) => {
     formData.append("size", size);
     formData.append("color", color);
     formData.append("city", city);
+    formData.append("price", price);
 
     try {
       //  console.log("token ==>", token);

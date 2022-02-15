@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
 import CardProduct from "../components/CardProduct";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 
 const Home = ({ params }) => {
   const [data, setData] = useState();
@@ -60,19 +62,30 @@ const Home = ({ params }) => {
           </div>
           {/* Add pagination conditions */}
           <div className="pages">
-            <button
-              className="btn primary"
-              onClick={() => page >= 2 && setPage(page - 1)}
-            >
-              Previous
-            </button>
+            {page === 1 ? (
+              <div className="page white">
+                <FontAwesomeIcon icon={faAngleLeft} />{" "}
+              </div>
+            ) : (
+              <button
+                className="btn primary"
+                onClick={() => page >= 2 && setPage(page - 1)}
+              >
+                Previous
+              </button>
+            )}
+
             <div className="page">{page}</div>
-            <button
-              className="btn primary"
-              onClick={() => page <= data.count / 8 && setPage(page + 1)}
-            >
-              Next
-            </button>
+            {page === Math.ceil(data.count / 8) ? (
+              ">"
+            ) : (
+              <button
+                className="btn primary"
+                onClick={() => page <= data.count / 8 && setPage(page + 1)}
+              >
+                Next
+              </button>
+            )}
           </div>
         </div>
       )}
