@@ -8,7 +8,7 @@ import axios from "axios";
 // import { Navigate } from "react-router-dom";
 import Cookies from "js-cookie";
 
-const Publish = ({ token, setLoginModal }) => {
+const Publish = ({ setLoginModal }) => {
   //Load pictures
   const [picture, setPicture] = useState({});
   const [title, setTitle] = useState("");
@@ -22,7 +22,6 @@ const Publish = ({ token, setLoginModal }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    //console.log(file, title, description);  => on récupère bien les infos dans les states
     const formData = new FormData();
     formData.append("picture", picture);
     formData.append("title", title);
@@ -34,12 +33,10 @@ const Publish = ({ token, setLoginModal }) => {
     formData.append("price", price);
 
     try {
-      //  console.log("token ==>", token);
       console.log("formData ==>", formData);
       const response = await axios.post(
         "https://vinted-clone-eld.herokuapp.com/offer/publish",
         formData,
-        //      { title: "robe art deco" },
         {
           headers: {
             authorization: `Bearer ${Cookies.get("userToken")}`,

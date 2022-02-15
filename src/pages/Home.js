@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import Hero from "../components/Hero";
 import CardProduct from "../components/CardProduct";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
 
 const Home = ({ params }) => {
   const [data, setData] = useState();
@@ -64,7 +64,7 @@ const Home = ({ params }) => {
           <div className="pages">
             {page === 1 ? (
               <div className="page white">
-                <FontAwesomeIcon icon={faAngleLeft} />{" "}
+                <FontAwesomeIcon icon={faAngleLeft} />
               </div>
             ) : (
               <button
@@ -77,7 +77,9 @@ const Home = ({ params }) => {
 
             <div className="page">{page}</div>
             {page === Math.ceil(data.count / 8) ? (
-              ">"
+              <div className="page white">
+                <FontAwesomeIcon icon={faAngleRight} />
+              </div>
             ) : (
               <button
                 className="btn primary"
