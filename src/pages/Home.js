@@ -1,5 +1,3 @@
-//Reste à faire : pagination conditions
-
 import React from "react";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -30,6 +28,9 @@ const Home = ({ params }) => {
             },
           }
         );
+        // const response = await axios.get(
+        //   `https://vinted-clone-eld.herokuapp.com/offers?title=${params.product_name}&sort=${params.sort}&priceMin="${params.priceMin}&priceMax="${params.priceMax}&limit=8&page=${page}`
+        // );
         console.log("response data ===>", response.data);
         setData(response.data);
         setIsLoading(false);
@@ -59,11 +60,17 @@ const Home = ({ params }) => {
           </div>
           {/* Add pagination conditions */}
           <div className="pages">
-            <button className="btn primary" onClick={() => setPage(page - 1)}>
+            <button
+              className="btn primary"
+              onClick={() => page >= 2 && setPage(page - 1)}
+            >
               Previous
             </button>
             <div className="page">{page}</div>
-            <button className="btn primary" onClick={() => setPage(page + 1)}>
+            <button
+              className="btn primary"
+              onClick={() => page <= data.count / 8 && setPage(page + 1)}
+            >
               Next
             </button>
           </div>

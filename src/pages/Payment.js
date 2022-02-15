@@ -17,6 +17,8 @@ const Payment = () => {
     "pk_test_51Hmy9lJ4SY6jJJ1K5TG5ZDswpSCPEWILiK9te70RwvHTo40sxom28LO7zgA9fUmwnHUfZOSq4K8MkptJGlsyXkcv00EA0LvrWd"
   );
 
+  const total = (price + 0.4 + 0.8).toFixed(2);
+
   return (
     <div className="payment">
       <div className="payment__container">
@@ -48,11 +50,11 @@ const Payment = () => {
         <div className="payment__detail">
           Il ne vous reste plus qu'une étape pour vous offrir{" "}
           <span className="bold">{title}</span>. Vous allez payer{" "}
-          <span className="bold">{(price + 0.4 + 0.8).toFixed(2)} € </span>
+          <span className="bold">{total} € </span>
           (frais de protection et frais de port inclus).
         </div>
         <Elements stripe={stripePromise}>
-          <CheckoutForm price={price} />
+          <CheckoutForm price={total} />
         </Elements>
       </div>
     </div>

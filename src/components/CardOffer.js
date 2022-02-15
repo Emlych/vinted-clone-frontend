@@ -14,10 +14,8 @@ const CardOffer = ({ data, setLoginModal }) => {
         <div className="infos--price">{data.product_price} €</div>
         <div className="infos--details">
           {data.product_details.map((item, index) => {
-            // const keys = Object.keys(item);
             return (
               <div className="infos--details--line" key={index}>
-                {/* {keys[0]} : {item[keys(0)]} */}
                 <span className="grey">{Object.keys(item)}</span>
                 <span className="darkgrey">{Object.values(item)}</span>
               </div>

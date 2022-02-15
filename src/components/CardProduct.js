@@ -4,19 +4,20 @@ const CardProduct = ({ item }) => {
   return (
     <div className="card">
       <div className="card__user">
-        <div className="card__user--img">
-          {item.owner.account ? (
-            <img src={item.owner.account.avatar.url} alt="profile avatar" />
-          ) : (
-            ""
-          )}
-        </div>
-        {item.owner.account ? (
-          <div className="card__user--name">{item.owner.account.username}</div>
+        {item.owner ? (
+          <div>
+            <div className="card__user--img">
+              <img src={item.owner.account.avatar.url} alt="profile avatar" />
+            </div>
+            <div className="card__user--name">
+              {item.owner.account.username}
+            </div>
+          </div>
         ) : (
           ""
         )}
       </div>
+
       <div className="card__img">
         <img
           src={item.product_image.secure_url}
