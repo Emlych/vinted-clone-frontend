@@ -34,7 +34,10 @@ const CardOffer = ({ data, setLoginModal }) => {
           </div>
         </div>
         {Cookies.get("userToken") ? (
-          <Link to={`/payment`}>
+          <Link
+            to={`/payment`}
+            state={{ title: data.product_name, price: data.product_price }}
+          >
             <button>Acheter</button>
           </Link>
         ) : (

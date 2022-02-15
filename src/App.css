@@ -39,7 +39,9 @@
 button:hover {
   cursor: pointer;
 }
-
+.bold {
+  font-weight: 700;
+}
 /* -------------- */
 /* HEADER */
 .header {
@@ -434,4 +436,36 @@ h2 {
 .align-right {
   display: flex;
   justify-content: flex-end;
+}
+
+/* PAYMENT */
+.payment {
+  padding-top: calc(2 * var(--headerHeight));
+  padding-left: 30px;
+  padding-right: 30px;
+  background-color: var(--primaryBackgroundColor);
+  height: 100vh;
+  overflow-y: scroll;
+}
+.payment__container {
+  background-color: #fff;
+  margin: 20px 0;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+}
+.payment__detail {
+  padding: 15px 0;
+  border-bottom: 1px solid var(--secondaryFontColor);
+}
+.payment__line {
+  display: flex;
+  padding: 10px 0;
+}
+.detail--line-text,
+.detail--line-amount {
+  flex: 1;
+}
+.detail--line-text {
+  color: var(--secondaryFontColor);
 }
