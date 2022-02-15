@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Cookies from "js-cookie";
 // import Home from "../pages/Home";
 import profilePic from "../assets/profilePic.svg";
@@ -45,8 +45,9 @@ const CardOffer = ({ data, setLoginModal }) => {
             <button className="primary">Acheter</button>
           </Link>
         ) : (
-          //open modal
-          <Navigate to="/login" />
+          <Link to={`/login`}>
+            <button className="primary">Acheter</button>
+          </Link>
         )}
       </div>
     </div>
