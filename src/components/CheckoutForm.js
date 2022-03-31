@@ -1,3 +1,6 @@
+//Reste à faire
+// - import cookies, and create in App.js an idCookie, pass this cookie in stripeResponse as userId. name:Cookies.get("userId")
+
 import React, { useState } from "react";
 import { useStripe, useElements, CardElement } from "@stripe/react-stripe-js";
 import axios from "axios";

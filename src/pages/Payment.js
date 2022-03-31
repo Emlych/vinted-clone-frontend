@@ -1,5 +1,5 @@
-//Reste à faire
-// - total à changer
+// Reste à faire
+// - import du token
 
 import React from "react";
 import { useLocation } from "react-router-dom";
