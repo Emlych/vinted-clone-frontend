@@ -27,8 +27,8 @@ API : https://api-vinted-project.herokuapp.com/
 
 ## Future features to work on later
 
-- Page that displays a given number of restaurants surrounding the researched one
-- Display "all" restaurants and go through them with pagination
+- Filter bar to make disappear when not on Offers page
+- Confirmation message once article bought
 
 ## How to install and run the project
 
